@@ -299,7 +299,6 @@ def home_page():
                 st.error(f"Error processing the uploaded file: {e}")
                 st.stop()
 
-            st.subheader("**Uploaded Resume Preview**")
 
             doc = nlp(resume_text)
             email = None
