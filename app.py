@@ -300,7 +300,6 @@ def home_page():
                 st.stop()
 
             st.subheader("**Uploaded Resume Preview**")
-            show_pdf(pdf_buffer)
 
             doc = nlp(resume_text)
             email = None
