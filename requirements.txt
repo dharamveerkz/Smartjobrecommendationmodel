@@ -2,8 +2,10 @@ streamlit
 numpy
 pandas
 scikit-learn
-PyMuPDF 
-docx2txt
 spacy
-openai  
-google-api-python-client 
+google-api-python-client
+plotly
+Pillow
+pdfminer.six
+requests
+pdfplumber

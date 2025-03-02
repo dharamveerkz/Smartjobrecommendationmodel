@@ -23,7 +23,6 @@ from Courses import (
 import pickle
 import spacy
 import plotly.express as px
-from yt_dlp import YoutubeDL
 from PIL import Image
 import io
 from pdfminer.high_level import extract_text
@@ -64,12 +63,6 @@ except FileNotFoundError:
     st.error("ML model files are missing.")
     st.stop()
 
-
-# Function to fetch YouTube video title
-def fetch_yt_video(link):
-    with YoutubeDL() as ydl:
-        info = ydl.extract_info(link, download=False)
-        return info.get("title", "Unknown Title")
 
 # Function to read PDF files
 
