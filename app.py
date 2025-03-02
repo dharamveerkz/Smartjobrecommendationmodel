@@ -1,3 +1,14 @@
+import pdfplumber
+import requests
+import time
+import random
+import base64
+import pandas as pd
+import streamlit as st
+from pdfminer.high_level import extract_text
+import io
+from PIL import Image
+import plotly.express as px
 import re
 from Courses import (
     ds_course,
@@ -22,29 +33,11 @@ from Courses import (
 )
 import pickle
 import spacy
-
-import spacy
 import os
-import subprocess
 
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    os.system("python -m spacy download en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
+os.system("python -m spacy download en_core_web_sm")
+nlp = spacy.load("en_core_web_sm")
 
-
-import plotly.express as px
-from PIL import Image
-import io
-from pdfminer.high_level import extract_text
-import streamlit as st
-import pandas as pd
-import base64
-import random
-import time
-import requests
-import pdfplumber
 
 # Initialize session state for page navigation
 if "page" not in st.session_state:
