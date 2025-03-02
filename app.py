@@ -358,7 +358,7 @@ def home_page():
         else:
             predicted_jobs_list = []
 
-        st.subheader("**Predicted Job Role (ML Model)**")
+        st.subheader("**Recomended Job Role (ML Model)**")
 
         # Predicted Job Role
         if predicted_jobs_list:
