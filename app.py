@@ -34,6 +34,17 @@ from Courses import (
 import pickle
 import spacy
 import os
+import plotly.express as px
+from PIL import Image
+import io
+from pdfminer.high_level import extract_text
+import streamlit as st
+import pandas as pd
+import base64
+import random
+import time
+import requests
+import pdfplumber
 
 os.system("python -m spacy download en_core_web_sm")
 nlp = spacy.load("en_core_web_sm")
