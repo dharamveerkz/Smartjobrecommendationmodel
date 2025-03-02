@@ -35,8 +35,20 @@ from PIL import Image
 import plotly.express as px
 import re
 
-os.system("python -m spacy download en_core_web_sm")
-nlp = spacy.load("en_core_web_sm")
+import spacy
+import subprocess
+import importlib.util
+
+
+def install_spacy_model(model_name):
+    if not importlib.util.find_spec(model_name):
+        subprocess.run(
+            ["python", "-m", "spacy", "download", model_name], check=True)
+
+
+model_name = "en_core_web_sm"
+install_spacy_model(model_name)
+nlp = spacy.load(model_name)
 
 
 # Initialize session state for page navigation
