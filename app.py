@@ -303,7 +303,7 @@ def home_page():
             doc = nlp(resume_text)
             email = None
             mobile_number = None
-            name = extract_name_from_resume(resume_text)
+            #name = extract_name_from_resume(resume_text)
 
             for ent in doc.ents:
                 if ent.label_ == "EMAIL":
@@ -328,9 +328,9 @@ def home_page():
         st.header("**Resume Analysis Results**")
 
         # Name
-        st.subheader("**Name**")
-        st.markdown(
-            f"<span style='font-size: 20px;'>{name or 'N/A'}</span>", unsafe_allow_html=True)
+        #st.subheader("**Name**")
+        #st.markdown(
+         #   f"<span style='font-size: 20px;'>{name or 'N/A'}</span>", unsafe_allow_html=True)
 
         # Match skills
         st.subheader("**Your Skills**")
