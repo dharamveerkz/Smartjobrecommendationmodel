@@ -88,22 +88,24 @@ def pdf_reader(file_path):
 
 # Function to process uploaded PDF files
 
-
 def process_uploaded_pdf(pdf_file):
-    binary_buffer = io.BytesIO(pdf_file.read()) 
-    resume_text = pdf_reader(binary_buffer)  
-    return resume_text, binary_buffer
+    binary_buffer = io.BytesIO(pdf_file.read())
+    save_image_path = os.path.join("./Uploaded_Resumes", pdf_file.name)
+    os.makedirs("./Uploaded_Resumes", exist_ok=True)
+    with open(save_image_path, "wb") as f:
+        f.write(binary_buffer.getvalue())
+    resume_text = pdf_reader(save_image_path)
+    return resume_text, save_image_path
+
 
 # Function to display PDF in Streamlit
 
 
-def show_pdf(file_buffer):
-    try:
-        base64_pdf = base64.b64encode(file_buffer.getvalue()).decode("utf-8")  # Encode the buffer to base64
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
-    except Exception as e:
-        st.error(f"Error displaying PDF: {e}")
+def show_pdf(file_path):
+    with open(file_path, "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 # Name Parsing Function
 def extract_name_with_font_info(file_path):
