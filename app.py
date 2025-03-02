@@ -22,6 +22,14 @@ from Courses import (
 )
 import pickle
 import spacy
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    print("Model 'en_core_web_sm' not found. Please install it using:")
+    print("    python -m spacy download en_core_web_sm")
+    exit(1)
+
 import plotly.express as px
 from PIL import Image
 import io
