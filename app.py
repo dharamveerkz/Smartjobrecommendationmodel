@@ -23,12 +23,16 @@ from Courses import (
 import pickle
 import spacy
 
+import spacy
+import os
+import subprocess
+
 try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
-    print("Model 'en_core_web_sm' not found. Please install it using:")
-    print("    python -m spacy download en_core_web_sm")
-    exit(1)
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 
 import plotly.express as px
 from PIL import Image
@@ -39,7 +43,6 @@ import pandas as pd
 import base64
 import random
 import time
-import os
 import requests
 import pdfplumber
 
